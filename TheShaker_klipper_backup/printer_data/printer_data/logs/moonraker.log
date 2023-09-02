@@ -1738,3 +1738,13 @@ Diverged: False
 2023-09-02 19:53:34,144 [klippy_connection.py:_check_ready()] - Klippy ready
 2023-09-02 19:53:34,170 [file_manager.py:get_file_list()] - Updating File List <gcodes>...
 2023-09-02 19:53:34,813 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'temperature_sensor raspberry_pi', 'temperature_sensor mcu_temp', 'extruder']
+2023-09-02 20:11:06,957 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2023-09-02 20:11:08,218 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2023-09-02 20:11:10,301 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2023-09-02 20:11:10,302 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2023-09-02 20:11:10,551 [job_state.py:_handle_started()] - Job state initialized: standby
+2023-09-02 20:11:10,816 [klippy_connection.py:_check_ready()] - Klippy ready
+2023-09-02 20:11:11,115 [file_manager.py:get_file_list()] - Updating File List <gcodes>...
+2023-09-02 20:11:11,558 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'temperature_sensor raspberry_pi', 'temperature_sensor mcu_temp', 'extruder']
+2023-09-02 20:59:04,807 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.4
+2023-09-02 21:14:04,811 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 127.0.0.1
