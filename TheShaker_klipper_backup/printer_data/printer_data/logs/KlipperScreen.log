@@ -5247,3 +5247,55 @@ screen_blanking = 300
 2023-09-02 20:11:11,481 [screen.py:attach_panel()] - Current panel hierarchy: main_menu
 2023-09-02 20:16:07,571 [screen.py:show_screensaver()] - Showing Screensaver
 2023-09-02 20:16:07,571 [screen.py:show_screensaver()] - Hiding dialog
+2023-09-02 22:39:44,089 [printer.py:change_state()] - Changing state from 'ready' to 'disconnected'
+2023-09-02 22:39:44,089 [printer.py:change_state()] - Adding callback for state: disconnected
+2023-09-02 22:39:44,091 [screen.py:state_disconnected()] - ### Going to disconnected
+2023-09-02 22:39:44,091 [screen.py:close_screensaver()] - Closing Screensaver
+2023-09-02 22:39:44,120 [screen.py:wake_screen()] - Screen wake up
+2023-09-02 22:39:44,152 [screen.py:close_screensaver()] - Restoring Dialog <Gtk.Dialog object at 0x7fa8cf54c0 (GtkDialog at 0x22588880)>
+2023-09-02 22:39:44,161 [screen.py:show_panel()] - Reinitializing panel
+2023-09-02 22:39:44,213 [screen.py:attach_panel()] - Current panel hierarchy: splash_screen
+2023-09-02 22:39:47,579 [KlippyRest.py:_do_request()] - Sending request to http://127.0.0.1:7125/server/info
+2023-09-02 22:39:47,588 [KlippyRest.py:_do_request()] - Sending request to http://127.0.0.1:7125/server/info
+2023-09-02 22:39:47,588 [screen.py:init_printer()] - Moonraker info {'klippy_connected': True, 'klippy_state': 'startup', 'components': ['klippy_connection', 'application', 'websockets', 'internal_transport', 'dbus_manager', 'database', 'file_manager', 'klippy_apis', 'secrets', 'template', 'shell_command', 'machine', 'data_store', 'proc_stats', 'job_state', 'job_queue', 'http_client', 'announcements', 'webcam', 'extensions', 'update_manager', 'history', 'octoprint_compat', 'authorization'], 'failed_components': [], 'registered_directories': ['config', 'logs', 'gcodes', 'config_examples', 'docs'], 'warnings': [], 'websocket_count': 2, 'moonraker_version': 'v0.8.0-138-gfe12095', 'missing_klippy_requirements': [], 'api_version': [1, 3, 0], 'api_version_string': '1.3.0'}
+2023-09-02 22:39:47,598 [KlippyRest.py:_do_request()] - Sending request to http://127.0.0.1:7125/server/webcams/list
+2023-09-02 22:39:47,599 [printer.py:configure_cameras()] - Cameras: []
+2023-09-02 22:39:47,608 [KlippyRest.py:_do_request()] - Sending request to http://127.0.0.1:7125/printer/info
+2023-09-02 22:39:47,685 [KlippyRest.py:_do_request()] - Sending request to http://127.0.0.1:7125/printer/objects/query?configfile
+2023-09-02 22:39:47,687 [printer.py:reinit()] - Klipper version: v0.11.0-271-g5f990f93-dirty
+2023-09-02 22:39:47,687 [printer.py:reinit()] - # Extruders: 1
+2023-09-02 22:39:47,687 [printer.py:reinit()] - # Temperature devices: 3
+2023-09-02 22:39:47,687 [printer.py:reinit()] - # Fans: 3
+2023-09-02 22:39:47,687 [printer.py:reinit()] - # Output pins: 0
+2023-09-02 22:39:47,698 [KlippyRest.py:_do_request()] - Sending request to http://127.0.0.1:7125/printer/gcode/help
+2023-09-02 22:39:47,699 [KlippyWebsocket.py:object_subscription()] - Sending printer.objects.subscribe
+2023-09-02 22:39:47,958 [KlippyRest.py:_do_request()] - Sending request to http://127.0.0.1:7125/printer/objects/query?bed_mesh&configfile&display_status&extruder&fan&gcode_move&heater_bed&idle_timeout&pause_resume&print_stats&toolhead&virtual_sdcard&webhooks&motion_report&firmware_retraction&exclude_object&manual_probe&extruder&heater_bed&temperature_sensor raspberry_pi&temperature_sensor mcu_temp&fan&heater_fan heatbreak_cooling_fan&heater_fan controller_fan
+2023-09-02 22:39:47,980 [KlippyRest.py:_do_request()] - Sending request to http://127.0.0.1:7125/server/temperature_store
+2023-09-02 22:39:47,983 [printer.py:init_temp_store()] - Temp store: ['heater_bed', 'temperature_sensor raspberry_pi', 'temperature_sensor mcu_temp', 'extruder']
+2023-09-02 22:39:47,993 [KlippyRest.py:_do_request()] - Sending request to http://127.0.0.1:7125/server/config
+2023-09-02 22:39:47,993 [screen.py:init_tempstore()] - Temperature store size: 1200
+2023-09-02 22:39:47,994 [files.py:initialize()] - Gcodes path: /home/pi/printer_data/gcodes
+2023-09-02 22:39:47,994 [KlippyWebsocket.py:get_file_list()] - Sending server.files.list
+2023-09-02 22:39:48,007 [KlippyRest.py:_do_request()] - Sending request to http://127.0.0.1:7125/server/config
+2023-09-02 22:39:48,008 [screen.py:init_spoolman()] - Not using Spoolman
+2023-09-02 22:39:48,008 [screen.py:init_printer()] - Printer initialized
+2023-09-02 22:39:48,008 [printer.py:change_state()] - Changing state from 'disconnected' to 'ready'
+2023-09-02 22:39:48,008 [printer.py:change_state()] - Adding callback for state: ready
+2023-09-02 22:39:48,008 [screen.py:preload()] - Preloading panels
+2023-09-02 22:39:48,008 [screen.py:_load_panel()] - Loading panel: move
+2023-09-02 22:39:48,058 [screen.py:_load_panel()] - Loading panel: temperature
+2023-09-02 22:39:48,066 [temperature.py:add_device()] - Adding device: extruder
+2023-09-02 22:39:48,072 [temperature.py:add_device()] - Adding device: heater_bed
+2023-09-02 22:39:48,078 [temperature.py:add_device()] - Adding device: temperature_sensor raspberry_pi
+2023-09-02 22:39:48,083 [temperature.py:add_device()] - Adding device: temperature_sensor mcu_temp
+2023-09-02 22:39:48,089 [temperature.py:select_heater()] - Selecting extruder
+2023-09-02 22:39:48,091 [temperature.py:select_heater()] - Selecting heater_bed
+2023-09-02 22:39:48,108 [screen.py:_load_panel()] - Loading panel: extrude
+2023-09-02 22:39:48,143 [screen.py:_load_panel()] - Loading panel: job_status
+2023-09-02 22:39:48,239 [screen.py:show_panel()] - Reinitializing panel
+2023-09-02 22:39:48,307 [main_menu.py:__init__()] - ### Making MainMenu
+2023-09-02 22:39:48,312 [main_menu.py:add_device()] - Adding device: extruder
+2023-09-02 22:39:48,317 [main_menu.py:add_device()] - Adding device: heater_bed
+2023-09-02 22:39:48,322 [main_menu.py:add_device()] - Adding device: temperature_sensor raspberry_pi
+2023-09-02 22:39:48,327 [main_menu.py:add_device()] - Adding device: temperature_sensor mcu_temp
+2023-09-02 22:39:48,358 [screen.py:attach_panel()] - Current panel hierarchy: main_menu
