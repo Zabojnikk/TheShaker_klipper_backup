@@ -1,0 +1,231 @@
+-------------------- Log Start | Sat Sep  9 17:03:44 2023 --------------------
+data_path: /home/pi/printer_data
+is_default_data_path: False
+config_file: /home/pi/printer_data/config/moonraker.conf
+startup_warnings: []
+verbose: False
+debug: False
+asyncio_debug: False
+is_backup_config: False
+is_python_package: False
+instance_uuid: c6fa4ff6148341388c80eea303df3f89
+unix_socket_path: /home/pi/printer_data/comms/moonraker.sock
+software_version: v0.8.0-138-gfe12095
+git_branch: master
+git_remote: origin
+git_repo_url: https://github.com/arksine/moonraker.git
+modified_files: []
+unofficial_components: []
+log_file: /home/pi/printer_data/logs/moonraker.log
+python_version: 3.9.2 (default, Feb 28 2021, 17:03:44)  [GCC 10.2.1 20210110]
+
+#################### Moonraker Configuration ####################
+
+[server]
+host = 0.0.0.0
+port = 7125
+max_upload_size = 1024
+klippy_uds_address = ~/printer_data/comms/klippy.sock
+
+[file_manager]
+enable_object_processing = True
+
+[authorization]
+cors_domains = 
+	https://my.mainsail.xyz
+	http://my.mainsail.xyz
+	http://*.local
+	http://*.lan
+trusted_clients = 
+	10.0.0.0/8
+	127.0.0.0/8
+	169.254.0.0/16
+	172.16.0.0/12
+	192.168.0.0/16
+	FE80::/10
+	::1/128
+	127.0.0.1
+
+[octoprint_compat]
+
+[history]
+
+[announcements]
+subscriptions = 
+	mainsail
+
+[update_manager]
+refresh_interval = 168
+enable_auto_refresh = True
+
+[update_manager mainsail]
+type = web
+channel = stable
+repo = mainsail-crew/mainsail
+path = ~/mainsail
+
+[update_manager mainsail-config]
+type = git_repo
+primary_branch = master
+path = ~/mainsail-config
+origin = https://github.com/mainsail-crew/mainsail-config.git
+managed_services = klipper
+
+[update_manager client klipper-backup]
+type = git_repo
+path = ~/klipper-backup
+origin = https://github.com/Staubgeborener/klipper-backup.git
+install_script = install.sh
+is_system_service = False
+primary_branch = main
+
+[update_manager sonar]
+type = git_repo
+path = ~/sonar
+origin = https://github.com/mainsail-crew/sonar.git
+primary_branch = main
+managed_services = sonar
+install_script = tools/install.sh
+
+[update_manager KlipperScreen]
+type = git_repo
+path = ~/KlipperScreen
+origin = https://github.com/jordanruthe/KlipperScreen.git
+env = ~/.KlipperScreen-env/bin/python
+requirements = scripts/KlipperScreen-requirements.txt
+install_script = scripts/KlipperScreen-install.sh
+managed_services = KlipperScreen
+
+#################################################################
+All Configuration Files:
+/home/pi/printer_data/config/moonraker.conf
+#################################################################
+Unsafe Shutdown Count: 33
+
+System Info:
+
+***python***
+  version: sys.version_info(major=3, minor=9, micro=2, releaselevel='final', serial=0)
+  version_string: 3.9.2 (default, Feb 28 2021, 17:03:44)  [GCC 10.2.1 20210110]
+
+***cpu_info***
+  cpu_count: 4
+  bits: 64bit
+  processor: aarch64
+  cpu_desc: 
+  serial_number: 100000006a971212
+  hardware_desc: BCM2835
+  model: Raspberry Pi 4 Model B Rev 1.1
+  total_memory: 1713732
+  memory_units: kB
+
+***sd_info***
+  manufacturer_id: 03
+  manufacturer: Sandisk
+  oem_id: 5344
+  product_name: SN32G
+  product_revision: 8.0
+  serial_number: fa66a938
+  manufacturer_date: 9/2022
+  capacity: 29.7 GiB
+  total_bytes: 31902400512
+
+***distribution***
+  name: Debian GNU/Linux 11 (bullseye)
+  id: debian
+  version: 11
+  version_parts: {'major': '11', 'minor': '', 'build_number': ''}
+  like: 
+  codename: bullseye
+  release_info: {'name': 'MainsailOS', 'version_id': '1.0.1', 'codename': 'bullseye', 'id': 'mainsailos'}
+
+***virtualization***
+  virt_type: none
+  virt_identifier: none
+
+***network***
+
+***canbus***
+
+***Allowed Services***
+  klipper_mcu
+  webcamd
+  MoonCord
+  KlipperScreen
+  moonraker-telegram-bot
+  moonraker-obico
+  sonar
+  crowsnest
+  octoeverywhere
+  ratos-configurator
+
+Systemd unit moonraker.service:
+unit_name: moonraker.service
+is_default: True
+manager: systemd
+Properties:
+**Requires=['sysinit.target', '-.mount', 'network-online.target', 'system.slice']
+**After=['basic.target', 'sysinit.target', 'network-online.target', 'systemd-journald.socket', 'klipper.service', '-.mount', 'system.slice']
+**SupplementaryGroups=['moonraker-admin']
+**EnvironmentFiles=/home/pi/printer_data/systemd/moonraker.env
+**ExecStart=/home/pi/moonraker-env/bin/python $MOONRAKER_ARGS
+**WorkingDirectory=/home/pi/moonraker
+**FragmentPath=/etc/systemd/system/moonraker.service
+**Description=API Server for Klipper SV1
+**User=pi
+
+Systemd unit klipper.service:
+unit_name: klipper.service
+is_default: True
+manager: systemd
+Properties:
+**Requires=['sysinit.target', 'system.slice', '-.mount']
+**After=['basic.target', 'systemd-journald.socket', 'sysinit.target', 'network-online.target', 'system.slice', '-.mount']
+**SupplementaryGroups=[]
+**EnvironmentFiles=/home/pi/printer_data/systemd/klipper.env
+**ExecStart=/home/pi/klippy-env/bin/python $KLIPPER_ARGS
+**WorkingDirectory=/home/pi/klipper
+**FragmentPath=/etc/systemd/system/klipper.service
+**Description=Klipper 3D Printer Firmware SV1
+**User=pi
+Git Repo moonraker: No warnings detected
+Git Repo klipper: No warnings detected
+Git Repo mainsail-config: No warnings detected
+Git Repo klipper-backup: No warnings detected
+Git Repo sonar: No warnings detected
+Git Repo KlipperScreen: No warnings detected
+Klipper Version: v0.11.0-271-g5f990f93-dirty
+2023-09-09 19:03:44,731 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 60.00 seconds
+2023-09-09 19:04:44,733 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 120.00 seconds
+2023-09-09 19:05:52,564 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.4
+2023-09-09 19:05:52,568 [app.py:log_request()] - 101 GET /websocket (192.168.1.4) [_TRUSTED_USER_] 5.05ms
+2023-09-09 19:05:52,568 [websockets.py:open()] - Websocket Opened: ID: 548336536736, Proxied: True, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/117.0, Host Name: mainsail.local
+2023-09-09 19:05:52,578 [websockets.py:_handle_identify()] - Websocket 548336536736 Client Identified - Name: mainsail, Version: 2.7.1, Type: web
+2023-09-09 19:06:05,941 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2023-09-09 19:06:07,200 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2023-09-09 19:06:09,249 [file_manager.py:get_file_list()] - Updating File List <gcodes>...
+2023-09-09 19:06:09,446 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2023-09-09 19:06:09,449 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2023-09-09 19:06:09,697 [job_state.py:_handle_started()] - Job state initialized: standby
+2023-09-09 19:06:09,958 [klippy_connection.py:_check_ready()] - Klippy ready
+2023-09-09 19:06:10,457 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'temperature_sensor raspberry_pi', 'temperature_sensor mcu_temp', 'extruder']
+2023-09-09 19:07:33,143 [app.py:prepare()] - Upload Request Received from 192.168.1.4
+2023-09-09 19:07:35,496 [app.py:post()] - Processing Uploaded File: VKB_Gunfighter_Mk4_Base_Plate.gcode
+2023-09-09 19:07:35,832 [shell_command.py:pipe_data_received()] - INFO:metadata:Object Processing is enabled
+
+2023-09-09 19:07:35,868 [shell_command.py:pipe_data_received()] - INFO:prepropress_cancellation:Shapely not found, complex hulls disabled
+
+2023-09-09 19:07:35,873 [shell_command.py:pipe_data_received()] - INFO:metadata:Performing Object Processing on file: VKB_Gunfighter_Mk4_Base_Plate.gcode, sliced by Cura
+
+2023-09-09 19:07:37,756 [shell_command.py:_check_proc_success()] - Command (/home/pi/moonraker-env/bin/python /home/pi/moonraker/moonraker/components/file_manager/metadata.py -p /home/pi/printer_data/gcodes -f "VKB_Gunfighter_Mk4_Base_Plate.gcode" --check-objects) successfully finished
+2023-09-09 19:07:37,762 [app.py:log_request()] - 201 POST /server/files/upload (192.168.1.4) [_TRUSTED_USER_] 4621.42ms
+2023-09-09 19:07:37,780 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <.thumbs/VKB_Gunfighter_Mk4_Base_Plate-400x400.png>
+2023-09-09 19:07:37,780 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.metadata, Code: -32601, Message: Metadata not available for <.thumbs/VKB_Gunfighter_Mk4_Base_Plate-32x32.png>
+2023-09-09 19:07:52,446 [job_state.py:_status_update()] - Job Started: VKB_Gunfighter_Mk4_Base_Plate.gcode
+2023-09-09 19:28:02,927 [file_manager.py:get_file_list()] - Updating File List <gcodes>...
+2023-09-09 19:28:11,086 [job_state.py:_status_update()] - Job Started: VKB_Gunfighter_Mk4_Base_Plate.gcode
+2023-09-09 19:29:30,028 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 60.00 seconds
+2023-09-09 19:30:00,416 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 60.00 seconds
+2023-09-09 19:30:30,030 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 120.00 seconds
+2023-09-09 20:07:09,528 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 127.0.0.1
+2023-09-09 20:12:09,529 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.4
